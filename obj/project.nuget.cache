@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "CWmITgO+DO9pFVksOc/Tei/3AjEwLyOKM4esbvZBehr9A05wtgy09RbayBZpkdAqADeJTJVL3bI12GG2FO+kYw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\raylaw\\Desktop\\Code\\Csh\\ElementaryMathGame\\ElementaryMathGame.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\raylaw\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
