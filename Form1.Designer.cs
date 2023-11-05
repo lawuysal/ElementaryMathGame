@@ -35,7 +35,8 @@
             scoreboardScoreBox = new ListBox();
             label3 = new Label();
             gameStartBtn = new Button();
-            panel1 = new Panel();
+            startingPage = new Panel();
+            questionsL1Page = new Panel();
             oprtrAddSlctBtn = new Button();
             oprtrSubSlctBtn = new Button();
             oprtrMulSlctBtn = new Button();
@@ -46,7 +47,18 @@
             level3SlctBtn = new Button();
             level4SlctBtn = new Button();
             level5SlctBtn = new Button();
-            panel1.SuspendLayout();
+            button1 = new Button();
+            passedL1Page = new Panel();
+            questionsL2Page = new Panel();
+            passedL2Page = new Panel();
+            questionsL3Page = new Panel();
+            passedL3Page = new Panel();
+            questionsL4Page = new Panel();
+            passedL4Page = new Panel();
+            questionsL5Page = new Panel();
+            passedL5Page = new Panel();
+            finishedPage = new Panel();
+            startingPage.SuspendLayout();
             SuspendLayout();
             // 
             // nameBox
@@ -84,7 +96,7 @@
             // 
             scoreboardNameBox.FormattingEnabled = true;
             scoreboardNameBox.ItemHeight = 20;
-            scoreboardNameBox.Location = new Point(61, 249);
+            scoreboardNameBox.Location = new Point(75, 249);
             scoreboardNameBox.Name = "scoreboardNameBox";
             scoreboardNameBox.Size = new Size(150, 104);
             scoreboardNameBox.TabIndex = 3;
@@ -93,7 +105,7 @@
             // 
             scoreboardScoreBox.FormattingEnabled = true;
             scoreboardScoreBox.ItemHeight = 20;
-            scoreboardScoreBox.Location = new Point(217, 249);
+            scoreboardScoreBox.Location = new Point(231, 249);
             scoreboardScoreBox.Name = "scoreboardScoreBox";
             scoreboardScoreBox.Size = new Size(150, 104);
             scoreboardScoreBox.TabIndex = 4;
@@ -111,7 +123,7 @@
             // gameStartBtn
             // 
             gameStartBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            gameStartBtn.Location = new Point(160, 386);
+            gameStartBtn.Location = new Point(181, 388);
             gameStartBtn.Name = "gameStartBtn";
             gameStartBtn.Size = new Size(94, 42);
             gameStartBtn.TabIndex = 16;
@@ -119,18 +131,28 @@
             gameStartBtn.UseVisualStyleBackColor = true;
             gameStartBtn.Click += button1_Click;
             // 
-            // panel1
+            // startingPage
             // 
-            panel1.BackColor = Color.RosyBrown;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(gameStartBtn);
-            panel1.Controls.Add(nameBox);
-            panel1.Controls.Add(scoreboardNameBox);
-            panel1.Controls.Add(scoreboardScoreBox);
-            panel1.Location = new Point(42, 23);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(539, 464);
-            panel1.TabIndex = 17;
+            startingPage.BackColor = Color.RosyBrown;
+            startingPage.Controls.Add(label1);
+            startingPage.Controls.Add(gameStartBtn);
+            startingPage.Controls.Add(nameBox);
+            startingPage.Controls.Add(scoreboardNameBox);
+            startingPage.Controls.Add(scoreboardScoreBox);
+            startingPage.Location = new Point(42, 23);
+            startingPage.Name = "startingPage";
+            startingPage.Size = new Size(539, 464);
+            startingPage.TabIndex = 17;
+            startingPage.Paint += startingPage_Paint;
+            // 
+            // questionsL1Page
+            // 
+            questionsL1Page.BackColor = Color.SteelBlue;
+            questionsL1Page.Location = new Point(42, 23);
+            questionsL1Page.Name = "questionsL1Page";
+            questionsL1Page.Size = new Size(539, 464);
+            questionsL1Page.TabIndex = 28;
+            questionsL1Page.Paint += questionPage_Paint;
             // 
             // oprtrAddSlctBtn
             // 
@@ -247,12 +269,114 @@
             level5SlctBtn.UseVisualStyleBackColor = false;
             level5SlctBtn.Click += level5SlctBtn_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(619, 461);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 29;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_2;
+            // 
+            // passedL1Page
+            // 
+            passedL1Page.BackColor = Color.PaleGreen;
+            passedL1Page.Location = new Point(42, 23);
+            passedL1Page.Name = "passedL1Page";
+            passedL1Page.Size = new Size(539, 464);
+            passedL1Page.TabIndex = 30;
+            // 
+            // questionsL2Page
+            // 
+            questionsL2Page.BackColor = Color.SteelBlue;
+            questionsL2Page.Location = new Point(42, 23);
+            questionsL2Page.Name = "questionsL2Page";
+            questionsL2Page.Size = new Size(539, 464);
+            questionsL2Page.TabIndex = 31;
+            // 
+            // passedL2Page
+            // 
+            passedL2Page.BackColor = Color.SpringGreen;
+            passedL2Page.Location = new Point(42, 23);
+            passedL2Page.Name = "passedL2Page";
+            passedL2Page.Size = new Size(539, 464);
+            passedL2Page.TabIndex = 32;
+            // 
+            // questionsL3Page
+            // 
+            questionsL3Page.BackColor = Color.SteelBlue;
+            questionsL3Page.Location = new Point(42, 23);
+            questionsL3Page.Name = "questionsL3Page";
+            questionsL3Page.Size = new Size(539, 464);
+            questionsL3Page.TabIndex = 33;
+            // 
+            // passedL3Page
+            // 
+            passedL3Page.BackColor = Color.SpringGreen;
+            passedL3Page.Location = new Point(42, 23);
+            passedL3Page.Name = "passedL3Page";
+            passedL3Page.Size = new Size(539, 464);
+            passedL3Page.TabIndex = 34;
+            // 
+            // questionsL4Page
+            // 
+            questionsL4Page.BackColor = Color.SteelBlue;
+            questionsL4Page.Location = new Point(42, 23);
+            questionsL4Page.Name = "questionsL4Page";
+            questionsL4Page.Size = new Size(539, 464);
+            questionsL4Page.TabIndex = 35;
+            // 
+            // passedL4Page
+            // 
+            passedL4Page.BackColor = Color.SpringGreen;
+            passedL4Page.Location = new Point(42, 23);
+            passedL4Page.Name = "passedL4Page";
+            passedL4Page.Size = new Size(539, 464);
+            passedL4Page.TabIndex = 36;
+            // 
+            // questionsL5Page
+            // 
+            questionsL5Page.BackColor = Color.SteelBlue;
+            questionsL5Page.Location = new Point(42, 23);
+            questionsL5Page.Name = "questionsL5Page";
+            questionsL5Page.Size = new Size(539, 464);
+            questionsL5Page.TabIndex = 37;
+            // 
+            // passedL5Page
+            // 
+            passedL5Page.BackColor = Color.SpringGreen;
+            passedL5Page.Location = new Point(42, 23);
+            passedL5Page.Name = "passedL5Page";
+            passedL5Page.Size = new Size(539, 464);
+            passedL5Page.TabIndex = 38;
+            // 
+            // finishedPage
+            // 
+            finishedPage.BackColor = Color.Khaki;
+            finishedPage.Location = new Point(42, 23);
+            finishedPage.Name = "finishedPage";
+            finishedPage.Size = new Size(539, 464);
+            finishedPage.TabIndex = 39;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
-            ClientSize = new Size(986, 538);
+            ClientSize = new Size(986, 618);
+            Controls.Add(finishedPage);
+            Controls.Add(passedL5Page);
+            Controls.Add(questionsL5Page);
+            Controls.Add(passedL4Page);
+            Controls.Add(questionsL4Page);
+            Controls.Add(passedL3Page);
+            Controls.Add(questionsL3Page);
+            Controls.Add(passedL2Page);
+            Controls.Add(questionsL2Page);
+            Controls.Add(passedL1Page);
+            Controls.Add(button1);
+            Controls.Add(questionsL1Page);
             Controls.Add(level5SlctBtn);
             Controls.Add(level4SlctBtn);
             Controls.Add(level3SlctBtn);
@@ -263,14 +387,14 @@
             Controls.Add(oprtrMulSlctBtn);
             Controls.Add(oprtrSubSlctBtn);
             Controls.Add(oprtrAddSlctBtn);
-            Controls.Add(panel1);
+            Controls.Add(startingPage);
             Controls.Add(label3);
             Controls.Add(label2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            startingPage.ResumeLayout(false);
+            startingPage.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -284,7 +408,7 @@
         private ListBox scoreboardScoreBox;
         private Label label3;
         private Button gameStartBtn;
-        private Panel panel1;
+        private Panel startingPage;
         private Button oprtrAddSlctBtn;
         private Button oprtrSubSlctBtn;
         private Button oprtrMulSlctBtn;
@@ -295,5 +419,17 @@
         private Button level3SlctBtn;
         private Button level4SlctBtn;
         private Button level5SlctBtn;
+        private Panel questionsL1Page;
+        private Button button1;
+        private Panel passedL1Page;
+        private Panel questionsL2Page;
+        private Panel passedL2Page;
+        private Panel questionsL3Page;
+        private Panel passedL3Page;
+        private Panel questionsL4Page;
+        private Panel passedL4Page;
+        private Panel questionsL5Page;
+        private Panel passedL5Page;
+        private Panel finishedPage;
     }
 }

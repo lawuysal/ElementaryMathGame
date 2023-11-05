@@ -55,6 +55,10 @@ namespace ElementaryMathGame
         string playerName;
         int selectedLevel = 1;
 
+        // Pages
+        List<Panel> pages = new List<Panel>();
+        int pageIndex = 1;
+
 
         public Form1()
         {
@@ -121,22 +125,58 @@ namespace ElementaryMathGame
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Opening Screen Initializations
+            playerName = nameBox.Text.ToString();
 
             // Level List Initialization
-            levels.Add(levelFirstAddition);
-            levels.Add(levelSecondAddition);
-            levels.Add(levelThirdAddition);
-            levels.Add(levelFourthAddition);
-            levels.Add(levelFifthAddition);
-
-            // Opening Screen Initializations
-
-            playerName = nameBox.Text.ToString();
+            if (selectedOperator == "+")
+            {
+                levels.Add(levelFirstAddition);
+                levels.Add(levelSecondAddition);
+                levels.Add(levelThirdAddition);
+                levels.Add(levelFourthAddition);
+                levels.Add(levelFifthAddition);
+            }
+            else if (selectedOperator == "-")
+            {
+                levels.Add(levelFirstSubstraction);
+                levels.Add(levelSecondSubstraction);
+                levels.Add(levelThirdSubstraction);
+                levels.Add(levelFourthSubstraction);
+                levels.Add(levelFifthSubstraction);
+            }
+            else if(selectedOperator == "*")
+            {
+                levels.Add(levelFirstMultiplication);
+                levels.Add(levelSecondMultiplication);
+                levels.Add(levelThirdMultiplication);
+                levels.Add(levelFourthMultiplication);
+                levels.Add(levelFifthMultiplication);
+            }
+            else if (selectedOperator == "/")
+            {
+                levels.Add(levelFirstDivision);
+                levels.Add(levelSecondDivision);
+                levels.Add(levelThirdDivision);
+                levels.Add(levelFourthDivision);
+                levels.Add(levelFifthDivision);
+            }
+            else if (selectedOperator == "all")
+            {
+                levels.Add(levelFirstRandom);
+                levels.Add(levelSecondRandom);
+                levels.Add(levelThirdRandom);
+                levels.Add(levelFourthRandom);
+                levels.Add(levelFifthRandom);
+            }
 
             // Game Initialization
             myGame = new Game(playerName, ref levels, selectedLevel, selectedOperator);
 
-            MessageBox.Show(string.Join(", ", myGame));
+            // Proccess to Next Screen and Start the Game
+            pageIndex = selectedLevel*2;
+            myGame.InitQuestionPage(ref pages, pageIndex);
+            pages[pageIndex-1].BringToFront();
 
         }
 
@@ -152,7 +192,31 @@ namespace ElementaryMathGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            // Adding Pages to List
+            pages.Add(startingPage); // 1
+            questionsL1Page.AutoScroll = true;
+            pages.Add(questionsL1Page); // 2
+            passedL1Page.AutoScroll = true;
+            pages.Add(passedL1Page); // 3
+            questionsL2Page.AutoScroll = true;
+            pages.Add(questionsL2Page); // 4
+            passedL2Page.AutoScroll = true;
+            pages.Add(passedL2Page); // 5
+            questionsL3Page.AutoScroll = true;
+            pages.Add(questionsL3Page); // 6
+            passedL3Page.AutoScroll = true;
+            pages.Add(passedL3Page); // 7
+            questionsL4Page.AutoScroll = true;
+            pages.Add(questionsL4Page); // 8
+            passedL4Page.AutoScroll = true;
+            pages.Add(passedL4Page); // 9
+            questionsL5Page.AutoScroll = true;
+            pages.Add(questionsL5Page); // 10
+            passedL5Page.AutoScroll = true;
+            pages.Add(passedL5Page); // 11
+            questionsL1Page.AutoScroll = true;
+            pages.Add(finishedPage); // 12
+            pages[0].BringToFront();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -163,6 +227,7 @@ namespace ElementaryMathGame
             oprtrMulSlctBtn.BackColor = Color.White;
             oprtrDivSlctBtn.BackColor = Color.White;
             oprtrAllSlctBtn.BackColor = Color.White;
+
         }
 
         private void oprtrSubSlctBtn_Click(object sender, EventArgs e)
@@ -213,6 +278,7 @@ namespace ElementaryMathGame
             level3SlctBtn.BackColor = Color.White;
             level4SlctBtn.BackColor = Color.White;
             level5SlctBtn.BackColor = Color.White;
+
         }
 
         private void level2SlctBtn_Click(object sender, EventArgs e)
@@ -253,6 +319,22 @@ namespace ElementaryMathGame
             level3SlctBtn.BackColor = Color.White;
             level4SlctBtn.BackColor = Color.White;
             level5SlctBtn.BackColor = Color.DodgerBlue;
+        }
+
+        private void startingPage_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void questionPage_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+            myGame.checkAnswers(ref pages);
         }
     }
 }
