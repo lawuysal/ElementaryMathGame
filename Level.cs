@@ -17,7 +17,7 @@ namespace ElementaryMathGame
         public int blockNumber;
         public List<Question> questions;
 
-        public Level(string levelName, int levelTime)
+        public Level(string levelName, int levelTime, int blockNumber)
         {
             this.levelName = levelName;
             this.levelTime = levelTime;
@@ -25,7 +25,7 @@ namespace ElementaryMathGame
             starPoint = 0;
             isStarted = false;
             isDone = false;
-            blockNumber = 1;
+            this.blockNumber = blockNumber;
             questions = new List<Question>();
 
         }
